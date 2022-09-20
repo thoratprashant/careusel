@@ -1,0 +1,145 @@
+<div class="auth-container">
+  <div class="row auth-main">
+    <div class="col-sm-6 px-0 d-none d-sm-block left--img--wrapper">
+      <div class="">
+        <img src="assets/images/logo.webp" alt=""> 
+      </div>
+      <div class="left-img" style="background-image: url(assets/images/auth-left-img.png);">
+      </div> 
+    </div>
+    <div class="col-sm-6 auth-form-section">
+      <div class="form-section">
+        <div class="auth-wrapper">
+          <h2 class="header--txt mb-2"> <b>Sign Up</b> </h2>
+
+          <div class="row">
+            <div class="col-xl-12"> 
+              <mat-horizontal-stepper labelPosition="bottom" #stepper>
+                <mat-step [stepControl]="firstFormGroup">
+                  <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel >Basic Info</ng-template> 
+                    <div class="row">
+                      <div class="col-12 mb-3"> 
+                        <h2 class="header--txt sm"><b>Basic Info</b></h2>
+                      </div>
+                      <div class="col-12">
+                        <label>First Name</label>
+                        <mat-form-field class="w-100" appearance="outline">
+                          <input matInput placeholder="Enter First Name" formControlName="firstCtrl" required>
+                          <mat-icon matSuffix>face</mat-icon>  
+                        </mat-form-field>
+                      </div>
+                      <div class="col-12">
+                        <label>Last Name</label>
+                        <mat-form-field class="w-100" appearance="outline">
+                          <input matInput placeholder="Enter Last Name">
+                          <mat-icon matSuffix>face</mat-icon>  
+                        </mat-form-field>
+                      </div>
+                      <div class="col-12">
+                        <label>Email Address</label>
+                        <mat-form-field class="w-100" appearance="outline">
+                          <input matInput placeholder="Enter Email Address">
+                          <mat-icon matSuffix>email</mat-icon>  
+                        </mat-form-field>
+                      </div>
+                      <div class="col-12">
+                        <label>Registering As</label>
+                        <mat-form-field class="w-100" appearance="outline">
+                          <mat-select placeholder="Select Profession"> 
+                            <mat-option>Valid option</mat-option>
+                            <mat-option>Invalid option</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-12">
+                        <label>Contact Number</label>
+                        <mat-form-field class="w-100" appearance="outline">
+                          <input matInput placeholder="Enter Contact Number">
+                          <mat-icon matSuffix>phone</mat-icon>  
+                        </mat-form-field>
+                      </div>
+                      <div class="col-12 mb-3">
+                        <label>Address</label>
+                        <mat-form-field class="w-100" appearance="outline">
+                          <input matInput placeholder="Enter Address">
+                          <mat-icon matSuffix>location_on</mat-icon>  
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div>
+                      <button mat-raised-button color="primary" matStepperNext>Next</button>
+                    </div>
+                    <div>
+                      <p class="mb-4 mt-4 aleady--member">Already a member? <a routerLink="/authentication/signin"> Login </a> </p>
+                    </div>
+                  </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup">
+                  <form  (ngSubmit)="onSubmit()" [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Verification</ng-template>
+                      <div class="row">
+                        <div class="col-12 mb-3"> 
+                          <h2 class="header--txt sm"><b>Verification</b></h2>
+                          <p>Please enter the verification code we sent to your email address 
+                            for verification.</p>
+                        </div>
+                      </div>
+                      <!-- <div class="row">
+                          <div class="form-group col-sm-2" *ngFor="let input of formInput;  index as i">
+                            <input #formRow type="text" formControlName="{{input}}" class="form-control" maxlength="1" (keyup)="keyUpEvent($event, i)">
+                          </div>
+                      </div> -->
+                    <div>
+                      <button mat-stroked-button color="primary" matStepperPrevious class="mr-3">Back</button>
+                      <button mat-raised-button color="primary" matStepperNext>Next</button>
+                    </div>
+                    <div>
+                      <p class="mb-4 mt-4 aleady--member">Already a member? <a routerLink="/authentication/signin"> Login </a> </p>
+                    </div>
+                  </form>
+                </mat-step>
+                <mat-step>
+                  <ng-template matStepLabel>Set Password</ng-template>
+                  <div class="row">
+                    <div class="col-12 mb-3"> 
+                      <h2 class="header--txt sm"><b>Create Your Password</b></h2> 
+                    </div>
+                    <div class="col-12">
+                      <label>Choose a Password</label>
+                      <mat-form-field class="w-100" appearance="outline">
+                        <input matInput [type]="hide ? 'password' : 'text'"  placeholder="Enter Password">
+                        <a class="show-pwd-icon" href="#" onClick="return false;" matSuffix (click)="hide = !hide"
+                          [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </a> 
+                      </mat-form-field>
+                    </div>
+                    <div class="col-12">
+                      <label>Confirm Password</label>
+                      <mat-form-field class="w-100" appearance="outline">
+                        <input matInput placeholder="Enter Confirm Password">
+                        <a class="show-pwd-icon" href="#" onClick="return false;" matSuffix (click)="hide = !hide"
+                          [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </a>  
+                      </mat-form-field>
+                    </div>
+                  </div> 
+                  <div class="mt-3">
+                    <button mat-stroked-button color="primary" matStepperPrevious class="mr-3">Back</button>
+                    <button mat-raised-button color="primary">Setup Account</button>
+                  </div>
+                  <div>
+                    <p class="mb-4 mt-4 aleady--member">Already a member? <a routerLink="/authentication/signin"> Login </a> </p>
+                  </div>
+                </mat-step>
+              </mat-horizontal-stepper> 
+            </div>
+          </div> 
+
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
