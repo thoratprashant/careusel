@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AuthenticationRoutingModule } from './authentication-routing.module';
-import { Page500Component } from './page500/page500.component';
+import { AuthenticationRoutingModule } from './authentication-routing.module'; 
 import { Page404Component } from './page404/page404.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
@@ -15,14 +14,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSelectModule } from '@angular/material/select';
+import { SetPasswordComponent } from './set-password/set-password.component';
 @NgModule({
-  declarations: [
-    Page500Component,
+  declarations: [ 
     Page404Component,
     SigninComponent,
     SignupComponent,
     LockedComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    SetPasswordComponent
   ],
   imports: [
     CommonModule,

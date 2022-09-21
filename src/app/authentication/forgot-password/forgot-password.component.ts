@@ -34,7 +34,7 @@ export class ForgotPasswordComponent implements OnInit {
     if (this.authForm.invalid) {
       return;
     } else {
-      this.router.navigate(['/authentication/page404']);
+      this.router.navigate(['/authentication/set-password']);
     }
   }
 }
